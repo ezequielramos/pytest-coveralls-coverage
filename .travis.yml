@@ -9,4 +9,4 @@ install:
 script:
     pytest --black --cov=./app --cov-report=term-missing
 after_success:
-  - COVERALLS_REPO_TOKEN=OCnCvZcuMaoo60vGu8fHIzpxzT6W1kypT coveralls
+  - COVERALLS_REPO_TOKEN=XgR7VOO3YwcPmIx0a16ltIeuSstVc4DTg coveralls
