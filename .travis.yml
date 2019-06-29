@@ -13,5 +13,7 @@ script:
   - if [ -z $COVERAGE ] ; then
       pytest;
     else
-      pytest --cov=./app --cov-report=term-missing --cov-report xml;
+      pytest --pep8 --cov=./app --cov-report=term-missing;
     fi
+after_success:
+  - coveralls

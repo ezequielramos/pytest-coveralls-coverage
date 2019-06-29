@@ -1,12 +1,7 @@
 import unittest
 import sys
-
-path = sys.path[0].split('/')
-path.pop()
-
-sys.path.append('/'.join(path))
-
 from app import add_absolute, app
+
 
 class TestMain(unittest.TestCase):
     def test_main(self):
