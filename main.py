@@ -1,10 +1,4 @@
+import app
 
-def add_absolute(value: int):
-
-    if not isinstance(value, int):
-        raise ValueError(f'value must be an integer not a  {type(value).__name__}')
-
-    if value < 0:
-        value = value * -1
-
-    return value + 1
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port="5000", debug=False)

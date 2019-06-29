@@ -6,7 +6,7 @@ path.pop()
 
 sys.path.append('/'.join(path))
 
-from main import add_absolute
+from app import add_absolute, app
 
 class TestMain(unittest.TestCase):
     def test_main(self):
@@ -15,3 +15,8 @@ class TestMain(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             add_absolute('123321')
+
+    def test_app(self):
+        with app.test_client() as c:
+            r = c.get('/')
+            self.assertEqual(r.status_code, 200)
