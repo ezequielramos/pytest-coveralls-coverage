@@ -1,5 +1,12 @@
 import unittest
 import sys
+
+import sys
+
+path = sys.path[0].split("/")
+path.pop()
+sys.path.append("/".join(path))
+
 from app import add_absolute, app
 
 
@@ -9,9 +16,9 @@ class TestMain(unittest.TestCase):
         self.assertEqual(add_absolute(-4), 5)
 
         with self.assertRaises(ValueError):
-            add_absolute('123321')
+            add_absolute("123321")
 
     def test_app(self):
         with app.test_client() as c:
-            r = c.get('/')
+            r = c.get("/")
             self.assertEqual(r.status_code, 200)

@@ -4,16 +4,9 @@ branches:
 language: python
 python:
   - "3.6.7"
-env:
-  global:
-  - COVERAGE=1
 install:
   - "pip install -r requirements.txt"
 script:
-  - if [ -z $COVERAGE ] ; then
-      pytest;
-    else
-      pytest --pep8 --cov=./app --cov-report=term-missing;
-    fi
+    pytest --black --cov=./app --cov-report=term-missing
 after_success:
-  - coveralls
+  - COVERALLS_REPO_TOKEN=OCnCvZcuMaoo60vGu8fHIzpxzT6W1kypT coveralls
