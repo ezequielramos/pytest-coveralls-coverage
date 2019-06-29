@@ -1,0 +1,15 @@
+language: python
+python:
+  - "3.7"
+matrix:
+  include:
+  - env: COVERAGE=1
+    python: "3.7"
+install:
+  - "pip install -r requirements.txt"
+script:
+  - if [ -z $COVERAGE ] ; then
+      pytest;
+    else
+      pytest --cov=./app --cov-report=term-missing --cov-report xml;
+    fi
